@@ -22,7 +22,7 @@
 // Override theme settings (see ../template/settings.scss)
 // $mainFont: 'Gentium Book Basic', Georgia, Times, 'Times New Roman', serif;
 // Primary/body text
-$mainFont: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$mainFont: 'Gentium Book Basic', Garamond, serif;
 $mainFontSize: 34px;
 $mainColor: #33363B;
 $headingFont: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -46,6 +46,7 @@ code {
 
 #solutions-count {
 	font-size: .6em;
+	font-family: $headingFont;
 	text-transform: uppercase;
 	color: red;
 	position: fixed;
@@ -73,6 +74,7 @@ code {
 
 #credits {
 	position: fixed;
+	font-family: $headingFont;
 	z-index: 30;
 	font-size: .4em;
 	bottom: 1em;
@@ -136,7 +138,7 @@ code {
 				background: #fff;
 				@include border-radius(1em);
 				font-size: .5em;
-				min-height: 12em;
+				min-height: 13em;
 				
 				@include transition-property(opacity);
 				@include transition-duration(0.2s);
@@ -258,5 +260,8 @@ code {
 				/*top: -100%;*/
 			}
 		}
+	}
+	button.restart {
+		margin-top: 1em;
 	}
 }
