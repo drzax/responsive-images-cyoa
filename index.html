@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+
+		<title>Responding to the unknown</title>
+
+		<meta name="description" content="A responsive images solution selection helper">
+		<meta name="author" content="Simon Elvery">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="lib/reveal/css/reveal.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/wdyk2013.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="lib/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/reveal/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+    <body>
+		<div class ="reveal">
+			<div id="solutions-count">Potential solutions: <span>10</span></div>
+			<div class="slides">
+				<section>
+					<section data-state="content">
+						<h1>Extra markup</h1>
+						<div class="main">
+							<p>This issue is really one of practicality and can be especially important if 
+							there is significant archive content or unskilled users will be managing the site.</p>
+							<h2>Key considerations</h2>
+							<ul>
+								<li>Would it be impractical to update existing <code>&lt;img></code> tags?</li>
+								<li>Do the content producers have the technical ability to implement and maintain specific markup?</li>
+								<li>Is extra markup okay if the technique or site design is changed in the future?</li>
+								<li>What are the accessibility implications?</li>
+							</ul>
+						</div>
+						
+						<div class="responses">
+							<p>Is it okay to have <em>extra</em>, <em>specific</em> markup to make an image responsive?</p>
+							<button class="btn btn-block btn-large">Yes</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+							<button class="btn btn-block btn-large" data-next="down">Maybe</button>
+							<span>i</span>
+						</div>
+						<aside class="help">
+							<p>Most techniques for implementing responsive images utilse some kind of specific markup
+							in or around each image tag. This can be anything from additional attributes on the <code>&lt;img></code>
+							tag itself to completely custom and non-standard markup which only uses an <code>&lt;img></code>
+							tag as a fallback.</p>
+							<p>Relying on specific markup can be problematic for a variety of reasons.</p>
+							<h3>Legacy content</h3>
+							<p>If there is a large amount of legacy content, going back and implementing the new responsive
+							technique around all images may be a non-trivial exercise. Even if there is a large amount of 
+							legacy content, it may not be important that it gets updated. Maybe the majority of visitors
+							to the site only see content and ignoring archived content is a compromise worth making.</p>
+							<h3>Future content</h3>
+							<p>Another important consideration is future content. Many sites are managed by non-technical 
+							users and ensuring that each image tag has the required specific markup might not be possible.
+							Maybe the site's CMS has a WYSIWYG editor which authors use to insert images; can it be adapted
+							to ensure that every image is inserted with the required markup?</p>
+							<h3>Future design</h3>
+							<p>If the site's design is updated in the future, will the additional markup for each image
+							be problematic?</p>
+						</aside>
+					</section>
+					<section data-state="content">
+						<h1>Extra attributes</h1>
+						<div class="main">
+							<p>Some techniques use extra attributes on the image tag. These are usually 
+							<code>data-xx=""</code> attributes or something designed to mimic future standards 
+							proposals like <a href="http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/" target="_blank">
+							<code>srcset</code></a>.</p>
+							<p>The techniques that work this way usually also require javascript.</p>
+						</div>
+						<div class="responses">
+							<p>Are extra attributes on the <code>&lt;img&gt;</code> tag okay?</p>
+							<button class="btn btn-block btn-large" data-next="down">Yes</button>
+							<button class="btn btn-block btn-large" data-next="down" data-exclude="hisrc-1,riloadr">No</button>
+						</div>
+					</section>
+					<section data-state="content">
+						<h1><code>&lt;noscript></code></h1>
+						<div class="main">
+							<p>Many of the javascript based techniques utilise the <code>&lt;noscript></code> tag to 
+							implement a fallback for when javascript isn't available.</p>
+						</div>
+						<div class="responses">
+							<p>Is it okay to rely on a <code>&lt;noscript></code> tag for fallback content?</p>
+							<button class="btn btn-block btn-large" data-next="down">Yes</button>
+							<button class="btn btn-block btn-large" data-next="down" data-exclude="picturefill,foresight">No</button>
+						</div>
+					</section>
+					<section data-state="content">
+						<h1>Special markup</h1>
+						<div class="main">
+							<p>Some techniques require specific markup around images. This can be anything from a
+							set of nested <code>&lt;div></code> elements with specific <code>data</code> attributes to 
+							the use of completely non-standard markup such as <a href="http://picture.responsiveimages.org/" target="_blank">the proposed 
+							<code>picture</code> element</a>.</p>
+						</div>
+						<div class="responses">
+							<p>Is completely custom markup okay?</p>
+							<button class="btn btn-block btn-large">Yes</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc-1,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+						</div>
+					</section>
+					<section data-state="content">
+						<h1>Markup validity</h1>
+						<div class="main">
+							<p>Some techniques rely on markup that won't validate using the <a href="http://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>.</p>
+							<p>Validation can be a useful tool, but remember that it's just a tool. Don't let it get in the
+							way of a better user experience.</p>
+						</div>
+						<div class="responses">
+							<p>Is it okay if the markup doesn't validate?</p>
+							<button class="btn btn-block btn-large">Yes</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,riloadr">No</button>
+						</div>
+					</section>
+				</section>
+				<section data-state="content">
+					<h1>Art direction</h1>
+					<div class="main">
+						<img src="images/art-direction.png" alt="Difference between an art directed image and a non-art directed image."/>
+					</div>
+					<aside class="help">
+						<p>Art direction can be very important on some images in some contexts. The two most common techniques 
+						used when resizing an image for display on smaller screens are to simply resize the image to fit,
+						or to crop/zoom the image using the centre as the focal point.</p>
+						<p>The meaning of an image can easily be lost with these simple techniques. By simply resizing 
+						an image to fit a small screen important details may become impossible to discern. Similarly by 
+						assuming the centre of the image should be the focal point when automatically cropping and 
+						zooming an image, the real focal point may be completely lost.</p>
+						<p>Very few of the responsive image techniques allow for crop/zoom art direction. While it's not 
+						a responsive images solution by itself, it may be worth investigating <a href="https://github.com/adamdbradley/focal-point">
+						focal point</a>, a pure html/css technique for implementing crop/zoom art direction on responsive
+						sites.</p>
+					</aside>
+					<div class="responses">
+						<p>Is the ability to art direct responsive images important?</p>
+						<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight">Yes</button>
+						<button class="btn btn-block btn-large">No</button>
+						<span>i</span>
+					</div>
+				</section>
+				<section>
+					<section data-state="technology">
+						<h1>Javascript</h1>
+						<div class="main">
+							<p>Most of the techniques require at least some javascript and most also provide a reasonable
+							fallback for users without javascript.</p>
+							<h2>Key considerations</h2>
+							<ul>
+								<li>We're close to the point where users without javascript should be considered an edge
+								case.</li>
+								<li>There may be accessibility implications.</li>
+							</ul>
+						</div>
+						<div class="responses">
+							<p>Is it okay to use javascript?</p>
+							<button class="btn btn-block btn-large" data-next="down">Yes</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight,riloadr">No</button>
+						</div>
+					</section>
+					<section data-state="technology">
+						<h1>Library dependency</h1>
+						<div class="main">
+							<p>A couple of the techniques have the <a href="http://jquery.com" target="_blank">jQuery library</a>
+							as a dependency.</p>
+							<p>If the site doesn't already use jQuery other techniques may be a better option.</p>
+						</div>
+						<aside class="help">
+							<p>jQuery is a big dependency. Depending on the specifics of the implementation, it may or 
+							may not be better to avoid adding jQuery just for responsive images. The key factors will be
+							initial page weight added by jQuery and how much download is likely to be saved due to the
+							responsive image technique.</p>
+						</aside>
+						<div class="responses">
+							<p>Is it okay to have jQuery as a dependency?</p>
+							<button class="btn btn-block btn-large">Yes</button>
+							<button class="btn btn-block btn-large" data-exclude="hisrc-1,hisrc-2">No</button>
+						</div>
+					</section>
+				</section>
+				<section data-state="technology">
+					<h1>Server site components</h1>
+					<div class="main">
+						<p>Some of the techniques are implemented or partially implemented using server side technologies
+						like <code>.htaccess</code> files or PHP.</p>
+						<h2>Key considerations</h2>
+						<ul>
+							<li>Is it possible to change the server side technology?</li>
+							<li>Is there time to port the server side component to the technology used by the site?</li>
+							<li>Is it possible to implement custom functionality to the CMS?</li>
+						</ul>
+					</div>
+					<aside class="help">
+						<p>There are a wide variety of considerations here, and this tool doesn't break down the techniques
+						by server technology. Most of the techniques included are Apache / PHP based solutions.</p>
+						<p>It's almost certainly possible to port the server side portion of each techniques to another 
+						server technology.</p>
+					</aside>
+					<div class="responses">
+						<p>Is the use of server side technologies okay?</p>
+						<button class="btn btn-block btn-large">Yes</button>
+						<button class="btn btn-block btn-large" data-exclude="adaptive-images,responsive-images-1,responsive-images-2">No</button>
+						<span>i</span>
+					</div>
+				</section>
+				<section data-state="technology">
+					<h1>Third-party service</h1>
+					<div class="main">
+						<p>Relying on a third-party service means having a little less control over uptime. </p>
+						<p>It may be difficult or impossible to implement a reliable fallback for <em>when</em> the 
+						service goes down. And it <em>will</em> go down.</p>
+					</div>
+					<div class="responses">
+						<p>Is it okay to rely on a third-party service?</p>
+						<button class="btn btn-block btn-large">Yes</button>
+						<button class="btn btn-block btn-large" data-exclude="src-sencha-io">No</button>
+					</div>
+				</section>
+				<section data-state="user">
+					<h1>Loading additional images</h1>
+					<div class="main">
+						<p>Some of the techniques can result in double requests for images. </p>
+						<p>Double requests will increase page weight and load time (typically for users with higher resolution screens.</p> 
+					</div>
+					<aside class="help">
+						<p>These techniques typically work by starting with a default (low-resolution) image and using 
+						javascript to swap in a higher resolution where appropriate.</p>
+						<p>Some techniques use an 1px &times; 1px transparent GIF as the default image which minimises
+						additional requests and page weight. If semantics are important, this method may be problematic.</p>
+					</aside>
+					<div class="responses">
+						<p>Is it okay if double requests are made?</p>
+						<button class="btn btn-block btn-large">Yes</button>
+						<button class="btn btn-block btn-large" data-exclude="hisrc-1,hisrc-2,responsive-images-1,responsive-images-2">No</button>
+						<span>i</span>
+					</div>
+				</section>
+				
+				
+				<!--
+				<section>
+					<h1>Issue</h1>
+					<div class="main">
+						<p>Description</p>
+					</div>
+					<aside class="help">
+						<p>Some extra help.</p>
+					</aside>
+					<div class="responses">
+						<p>Question</p>
+						<button class="btn btn-block btn-large">Yes</button>
+						<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+						<span>i</span>
+					</div>
+				</section>
+				-->
+				
+				<section id="solutions" data-state="solutions">
+					<h1>Solutions</h1>
+					<div>
+						<div class="solution" id="picturefill">
+							<h2>Picturefill</h2>
+						</div>
+						<div class="solution" id="adaptive-images">
+							<h2>Adaptive Images</h2>
+						</div>
+						<div class="solution" id="hisrc-1">
+							<h2>HiSRC</h2>
+						</div>
+						<div class="solution" id="hisrc-2">
+							<h2>HiSRC</h2>
+							<h3>Transparent GIF approach</h3>
+						</div>
+						<div class="solution" id="responsive-images-1">
+							<h2>Responsive Images</h2>
+						</div>
+						<div class="solution" id="responsive-images-2">
+							<h2>Responsive Images</h2>
+							<h3>Alternative</h3>
+						</div>
+						<div class="solution" id="foresight">
+							<h2>Foresight.js</h2>
+						</div>
+						<div class="solution" id="src-sencha-io">
+							<h2>src-sencha-io</h2>
+						</div>
+						<div class="solution" id="riloadr">
+							<h2>Riloadr</h2>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		
+		<script src="lib/reveal/lib/js/head.min.js"></script>
+		<script src="lib/reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				width: 1024,
+				height: 768,
+				controls: false,
+				progress: true,
+				history: true,
+				center: false,
+				overview: false,
+				margin: 0.2,
+				rollingLinks: false,
+
+				theme: 'default', // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'js/wizard.min.js', async: true }
+				]
+			});
+
+		</script>
+
+    </body>
+</html>
