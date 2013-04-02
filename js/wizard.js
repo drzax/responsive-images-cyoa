@@ -7,13 +7,28 @@ var Wizard = (function($, undefined){$(function(){
 	
 	// An array of arrays to store excluded solutions by question
 	var excluded = [],
+		started = false, // Has the wizard been started?
+		log = [], // Stores the navigation history
 		$solutions = $('#solutions div.solution'),
 		$count = $('#solutions-count span');
 		
 	$count.html($solutions.not('.excluded').length);
 	
+	$solutions.find('a').attr('target', '_blank');
+	
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+		var location = '#/'+event.indexh;
+		
+		if (event.indexv > 0) {
+			location += '/'+event.indexv;
+		}
+		
+		log.push(location);
+		if (log.length > 2) log.shift();
+	});
+	
 	function updateAvailableSolutions() {
-		var i,j, id;
+		var i,j, id, count;
 		
 		$solutions.removeClass('excluded');
 		
@@ -30,8 +45,15 @@ var Wizard = (function($, undefined){$(function(){
 				});
 			}
 		}
+		count = $solutions.not('.excluded').length;
+		$count.html(count);
 		
-		$count.html($solutions.not('.excluded').length);
+		if (count <= 1) {
+			$('#result').removeClass('count-1').removeClass('count-0').addClass('count-'+count);
+			window.location = '#/result';
+		}
+		
+		return count;
 	}
 	
 	$(document).on('click', '.responses button', function(){
@@ -43,7 +65,7 @@ var Wizard = (function($, undefined){$(function(){
 		$this.addClass('btn-success').siblings('button').removeClass('btn-success');
 		excluded[indices.v + '/' + indices.h] = (exclude === undefined) ? [] : exclude.split(',');
 		updateAvailableSolutions();
-		next();
+		if (updateAvailableSolutions() > 1) next();
 	});
 	
 	$(document).on('click', '.responses span', function() {
@@ -52,4 +74,21 @@ var Wizard = (function($, undefined){$(function(){
 			
 		$slide.toggleClass('help');
 	});
+	
+	$(document).on('click', 'button.start', function(){
+		started = true;
+		Reveal.next();
+	});
+	
+	$(document).on('click', 'button.prev', function(){
+		window.location = log[0];
+	});
+	
+	$(document).on('click', 'button.restart', function(){
+		excluded = [];
+		$('button').removeClass('btn-success');
+		updateAvailableSolutions();
+		window.location = '#';
+	});
+	
 });}(jQuery));

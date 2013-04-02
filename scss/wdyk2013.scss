@@ -71,9 +71,30 @@ code {
 	}
 }
 
+#credits {
+	position: fixed;
+	z-index: 30;
+	font-size: .4em;
+	bottom: 1em;
+	left: 1em;
+}
+
+.intro {
+	#solutions-count {
+		display: none;
+	}
+}
+
 .reveal .slides {
 	
 	text-align: left;
+	
+	h1, h2, h3, h4, h5, p {
+		margin: .5em 0;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
 	
 	h1 {
 		font-size: 2em;
@@ -96,6 +117,58 @@ code {
 		height: 100%;
 		padding: 0;
 	}
+	
+	#result {
+		
+		#solutions {
+			
+			max-height: 80%;
+			overflow: auto;
+			
+			.solution {
+				
+				display: inline-block;
+				width: 20%;
+				margin-right: .5em;
+				margin-bottom: 1em;
+				vertical-align: top;
+				padding: 1em;
+				background: #fff;
+				@include border-radius(1em);
+				font-size: .5em;
+				min-height: 12em;
+				
+				@include transition-property(opacity);
+				@include transition-duration(0.2s);
+				@include transition-timing-function(ease-in);
+				
+				&.excluded {
+					opacity: .4;
+					display: none;
+				
+					&:hover {
+						opacity: .8;
+					}
+				}
+				
+				p:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		
+		&.count-0 {
+			#solutions {
+				.solution {
+					&.excluded {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+	
+		
 	
 	section {
 
@@ -126,9 +199,7 @@ code {
 			@include transition-duration(0.2s);
 			@include transition-timing-function(ease-in);
 			
-			h1, h2, h3, h4, h5, p {
-				margin: .5em 0;
-			}
+			
 		}
 		
 		div.main {
@@ -173,7 +244,6 @@ code {
 		&.help {
 			aside.help {
 				top: 10%;
-				height: 90%;
 				opacity: 1;
 			}
 			

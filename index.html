@@ -17,20 +17,26 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/reveal/lib/css/zenburn.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="lib/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
-
+		
 		<!--[if lt IE 9]>
 		<script src="lib/reveal/lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
     <body>
 		<div class ="reveal">
-			<div id="solutions-count">Potential solutions: <span>10</span></div>
+			<div id="solutions-count">Potential solutions: <span></span></div>
 			<div class="slides">
+				<section data-state="intro">
+					<h2>Responsive images solution wizard</h2>
+					<p>The ultimate solution for implementing responsive images doesn't yet exist, and probably never
+					will.</p>
+					<p>This doesn't mean you should ignore images when implementing responsive designs, and there are many
+					solutions available to fill the gap. The trick is finding the right one. The landscape of solutions is 
+					complex and each has its drawbacks and advantages.</p>
+					<p>So click through here to find a solution that suits your project.</p>
+					<button class="btn btn-large btn-primary start">Get started</button>
+					<p><small>Created or know of a solution worthy of inclusion? Please <a href="mailto:simon@elvery.net">get in touch</a>.</small></p>
+				</section>
 				<section>
 					<section data-state="content">
 						<h1>Extra markup</h1>
@@ -49,7 +55,7 @@
 						<div class="responses">
 							<p>Is it okay to have <em>extra</em>, <em>specific</em> markup to make an image responsive?</p>
 							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
 							<button class="btn btn-block btn-large" data-next="down">Maybe</button>
 							<span>i</span>
 						</div>
@@ -86,7 +92,7 @@
 						<div class="responses">
 							<p>Are extra attributes on the <code>&lt;img&gt;</code> tag okay?</p>
 							<button class="btn btn-block btn-large" data-next="down">Yes</button>
-							<button class="btn btn-block btn-large" data-next="down" data-exclude="hisrc-1,riloadr">No</button>
+							<button class="btn btn-block btn-large" data-next="down" data-exclude="hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,ri-php,tri,noscript,rirn">No</button>
 						</div>
 					</section>
 					<section data-state="content">
@@ -94,11 +100,12 @@
 						<div class="main">
 							<p>Many of the javascript based techniques utilise the <code>&lt;noscript></code> tag to 
 							implement a fallback for when javascript isn't available.</p>
+							<p>Some techniques use <code>&lt;noscript></code> to avoid unwanted image requests.</p>
 						</div>
 						<div class="responses">
 							<p>Is it okay to rely on a <code>&lt;noscript></code> tag for fallback content?</p>
 							<button class="btn btn-block btn-large" data-next="down">Yes</button>
-							<button class="btn btn-block btn-large" data-next="down" data-exclude="picturefill,foresight">No</button>
+							<button class="btn btn-block btn-large" data-next="down" data-exclude="picturefill,foresight,ri-php,tri,noscript">No</button>
 						</div>
 					</section>
 					<section data-state="content">
@@ -112,7 +119,7 @@
 						<div class="responses">
 							<p>Is completely custom markup okay?</p>
 							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc-1,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
 						</div>
 					</section>
 					<section data-state="content">
@@ -125,7 +132,7 @@
 						<div class="responses">
 							<p>Is it okay if the markup doesn't validate?</p>
 							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,riloadr">No</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,riloadr,ri-php">No</button>
 						</div>
 					</section>
 				</section>
@@ -149,7 +156,7 @@
 					</aside>
 					<div class="responses">
 						<p>Is the ability to art direct responsive images important?</p>
-						<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight">Yes</button>
+						<button class="btn btn-block btn-large" data-exclude="adaptive-images,foresight,src-sencha-io,riloadr,doubletake,wurfl">Yes</button>
 						<button class="btn btn-block btn-large">No</button>
 						<span>i</span>
 					</div>
@@ -170,7 +177,7 @@
 						<div class="responses">
 							<p>Is it okay to use javascript?</p>
 							<button class="btn btn-block btn-large" data-next="down">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight,riloadr">No</button>
+							<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript">No</button>
 						</div>
 					</section>
 					<section data-state="technology">
@@ -189,12 +196,12 @@
 						<div class="responses">
 							<p>Is it okay to have jQuery as a dependency?</p>
 							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="hisrc-1,hisrc-2">No</button>
+							<button class="btn btn-block btn-large" data-exclude="hisrc,rwd-images,doubletake,ri-php,tri">No</button>
 						</div>
 					</section>
 				</section>
 				<section data-state="technology">
-					<h1>Server site components</h1>
+					<h1>Server side components</h1>
 					<div class="main">
 						<p>Some of the techniques are implemented or partially implemented using server side technologies
 						like <code>.htaccess</code> files or PHP.</p>
@@ -214,7 +221,7 @@
 					<div class="responses">
 						<p>Is the use of server side technologies okay?</p>
 						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="adaptive-images,responsive-images-1,responsive-images-2">No</button>
+						<button class="btn btn-block btn-large" data-exclude="adaptive-images,responsive-images-1,responsive-images-2,car,doubletake,ri-php,ri-cookie,wurfl">No</button>
 						<span>i</span>
 					</div>
 				</section>
@@ -235,7 +242,7 @@
 					<h1>Loading additional images</h1>
 					<div class="main">
 						<p>Some of the techniques can result in double requests for images. </p>
-						<p>Double requests will increase page weight and load time (typically for users with higher resolution screens.</p> 
+						<p>Double requests will increase page weight and load time (typically for users with higher resolution screens).</p> 
 					</div>
 					<aside class="help">
 						<p>These techniques typically work by starting with a default (low-resolution) image and using 
@@ -246,11 +253,44 @@
 					<div class="responses">
 						<p>Is it okay if double requests are made?</p>
 						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="hisrc-1,hisrc-2,responsive-images-1,responsive-images-2">No</button>
+						<button class="btn btn-block btn-large" data-exclude="hisrc,responsive-images-1,responsive-images-2,responsive-enhance,retinajs,doubletake,rirn">No</button>
 						<span>i</span>
 					</div>
 				</section>
-				
+				<section>
+					<h1>Bandwidth testing</h1>
+					<div class="main">
+						<p>Some of the techniques offer the ability to test the available bandwidth so even
+						if the viewer has a slow connection smaller images will be used even if 
+						their device has a high resolution display.</p>
+						<h2>Key considerations</h2>
+						<ul>
+							<li>There may be little advantage to this for sites with relatively few images per page.</li>
+							<li>Accuracy may be low.</li>
+						</ul>
+					</div>
+					<aside class="help">
+						<h2>Half the battle</h2>
+						<p>Being responsive isn't just about screen resolutions. Network conditions are also an important
+						factor and especially so when dealing with weighty assets like images.</p>
+						<p>There are no native tools available for testing network conditions. Javascript is 
+						<a href="http://lists.whatwg.org/htdig.cgi/whatwg-whatwg.org/2012-May/036108.html" target="_blank">apparently</a>
+						getting a network API, but for now the only solution is to roll your own, which is what some of 
+						the responsive images techniques do.</p>
+						<h2>How it's done</h2>
+						<p>Typically they work by downloading an asset of a known size and measuring the time taken to infer 
+						the available download speed.</p>
+						<p>There is an important trade off here between the size of the test asset and the accuracy of the
+						result. The larger the test asset the less useful bandwidth testing becomes overall, but make it 
+						too small and the result becomes much less accurate.</p>
+					</aside>
+					<div class="responses">
+						<p>Is bandwidth testing required?</p>
+						<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript,rirn,wurfl">Yes</button>
+						<button class="btn btn-block btn-large">No</button>
+						<span>i</span>
+					</div>
+				</section>
 				
 				<!--
 				<section>
@@ -264,47 +304,185 @@
 					<div class="responses">
 						<p>Question</p>
 						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc-1,hisrc-2,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+						<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
 						<span>i</span>
 					</div>
 				</section>
 				-->
 				
-				<section id="solutions" data-state="solutions">
+				<section id="result" data-state="result">
 					<h1>Solutions</h1>
-					<div>
+					<div id="solutions">
 						<div class="solution" id="picturefill">
 							<h2>Picturefill</h2>
+							<p>Picture fill is an open source project which mimics the proposed <code>&lt;picture></code>
+							element, but uses <code>&lt;div></code> elements with specific <code>data</code> attributes.</p>
+							<p>
+								<a href="https://github.com/scottjehl/picturefill">Project Home</a> | 
+								<a href="http://scottjehl.github.com/picturefill/">Demo</a>
+							</p>
 						</div>
 						<div class="solution" id="adaptive-images">
 							<h2>Adaptive Images</h2>
+							<p>Adaptive images is a PHP / Apache based system which detects a visitors screen size and automatically creates, caches, and delivers device appropriate re-scaled versions site images.</p>
+							<p>
+								<a href="http://adaptive-images.com/">Project Home &amp; Demo</a>
+							</p>
 						</div>
-						<div class="solution" id="hisrc-1">
+						<div class="solution" id="hisrc">
 							<h2>HiSRC</h2>
-						</div>
-						<div class="solution" id="hisrc-2">
-							<h2>HiSRC</h2>
-							<h3>Transparent GIF approach</h3>
+							<p>HiSRC is a jQuery plugin which will swap in an appropriate higher resolution image based on network 
+							conditions and screen resolution.</p>
+							<p>
+								<a href="https://github.com/teleject/hisrc">Project Home</a>
+							</p>
 						</div>
 						<div class="solution" id="responsive-images-1">
 							<h2>Responsive Images</h2>
+							<p>This is one of the original techniques for implementing responsive images by Filament Group. It relies on a .htaccess file (and therefore Apache) for its magic.</p>
+							<p>
+								<a href="https://github.com/filamentgroup/Responsive-Images">Project Home</a> | 
+								<a href="http://filamentgroup.com/examples/responsive-images-new/demos/A-Default/demo.html">Demo</a>
+							</p>
 						</div>
 						<div class="solution" id="responsive-images-2">
 							<h2>Responsive Images</h2>
 							<h3>Alternative</h3>
+							<p>A variation on the <a href="https://github.com/filamentgroup/Responsive-Images">Filament Group approach</a> to reduce the required javascript.</p>
+							<p>
+								<a href="https://github.com/allmarkedup/responsive-images-alt">Project Home</a> | 
+								<a href="http://responsive-images.allmarkedup.com/demo.html">Demo</a>
+							</p>
 						</div>
 						<div class="solution" id="foresight">
 							<h2>Foresight.js</h2>
+							<p>A popular open source, javascript and custom markup based solution by Adam Bradley.</p>
+							<p>
+								<a href="https://github.com/adamdbradley/foresight.js">Project Home</a> | 
+								<a href="http://www.cdnconnect.com/docs/foresightjs/demos">Demo</a>
+							</p>
 						</div>
 						<div class="solution" id="src-sencha-io">
-							<h2>src-sencha-io</h2>
+							<h2>src.sencha.io</h2>
+							<p>A commercial offering from <a href="http:://sencha.io">Sencha</a> where all image 
+							requests are routed through a web service which detects the user's device and sends an appropriate image.</p>
+							<p>
+								<a href="http://docs.sencha.io/current/index.html#!/guide/src">Documentation</a>
+							</p>
 						</div>
 						<div class="solution" id="riloadr">
 							<h2>Riloadr</h2>
+							<p>An open source project from Tubal Martin.</p>
+							<p>
+								<a href="https://github.com/tubalmartin/riloadr">Project Home</a> |
+								<a href="https://github.com/tubalmartin/riloadr/tree/master/demos">Examples</a>
+							</p>
 						</div>
+						<div class="solution" id="responsive-enhance">
+							<h2>Responsive Enhance</h2>
+							<p>A javascript function which can be selectively applied to image elements to swap in a
+							higher resolution image if appropriate.</p>
+							<p>
+								<a href="https://github.com/joshje/Responsive-Enhance">Project Home</a>
+							</p>
+						</div>
+						<div class="solution" id="rwd-images">
+							<h2>rwdImages</h2>
+							<p>A jQuery plugin which uses CSS media queries and javascript to display an appropriate image.</p>
+							<p>
+								<a href="https://github.com/stowball/jQuery-rwdImages">Project Home</a> | 
+								<a href="http://mattstow.com/experiment/responsive-images-redux/responsive-images-redux-jquery-plugin.html">Demo</a>
+							</p>
+						</div>
+						<div class="solution" id="retinajs">
+							<h2>Retina.js</h2>
+							<p>Javascript and LESS helpers for rendering high-resolution image variants. This uses the 
+							<code>@2x</code> naming convention established by Apple or iOS app assets.</p>
+							<p>
+								<a href="http://retinajs.com/">Project Home</a>
+							</p>
+						</div>
+						<div class="solution" id="car">
+							<h2>Content Aware Resizing</h2>
+							<p>A PHP / javascript based solution for serving automatically created and appropriately sized
+							images.</p>
+							<p>
+								<a href="https://github.com/craig552uk/getImage">Project Home</a>
+							</p>
+						</div>
+						<div class="solution" id="doubletake">
+							<h2>Doubletake</h2>
+							<p>A proof of concept jQuery plugin which rewrites image source attributes based on regular expressions.</p>
+							<p>
+								<a href="http://www.grahambird.co.uk/lab/doubletake/">Project Home &amp; Demo</a>
+							</p>
+						</div>
+						<div class="solution" id="ri-php">
+							<h2>Responsive Images with PHP</h2>
+							<p>Uses javascript to swap in an appropriately sized image which is automatically created with a 
+							PHP script.</p>
+							<p>
+								<a href="http://www.jamesfairhurst.co.uk/posts/view/responsive_images_with_php_and_jquery/">Project Home</a> | 
+								<a href="http://www.jamesfairhurst.co.uk/SkeletonResizeImages/">Demo</a>
+							</p>
+						</div>
+						<div class="solution" id="ri-cookie">
+							<h2>Responsive Images with Cookies</h2>
+							<p>Uses javascript to set a cookie with the screen size, The server must then use this cookie
+							to serve images of an appropriate resolution.</p>
+							<p>
+								<a href="http://blog.keithclark.co.uk/responsive-images-using-cookies/">Project Home</a>
+							</p>
+						</div>
+						<div class="solution" id="tri">
+							<h2>Testing Responsive Images</h2>
+							<p>Utilises the <code>&lt;noscript></code> tag and javascript to insert images into the DOM
+							after page load.</p>
+							<p>
+								<a href="http://www.monoliitti.com/images/">Project Home &amp; Demo</a>
+							</p>
+						</div>
+						<div class="solution" id="noscript">
+							<h2>Responsive Image Tag</h2>
+							<p>Utilises the <code>&lt;noscript></code> tag and javascript to insert images into the DOM
+							after page load.</p>
+							<p>
+								<a href="http://www.headlondon.com/our-thoughts/technology/posts/creating-responsive-images-using-the-noscript-tag">Project Home</a>
+							</p>
+						</div>
+						<div class="solution" id="rirn">
+							<h2>Responsive Images Right Now</h2>
+							<p>Uses CSS media queries and some custom markup to display an image with an appropriate resolution for the screen.</p>
+							<p>
+								<a href="http://csswizardry.com/2011/07/responsive-images-right-now/">Project Home</a> | 
+								<a href="http://dl.dropbox.com/u/2629908/sandbox/responsive-images/index.html">Demo</a>
+							</p>
+						</div>
+						<div class="solution" id="wurfl">
+							<h2>WURFL Server Side Responsive Images</h2>
+							<p>Uses device detection and a Java library to serve an image of the appropriate resolution for the detected device.</p>
+							<p>
+								<a href="https://github.com/carsonmcdonald/ServerSideResponsiveImageExample#readme">Project Home</a>
+							</p>
+						</div>
+						<!--
+						<div class="solution" id="">
+							<h2></h2>
+							<p></p>
+							<p>
+								<a href="">Project Home</a> | 
+								<a href="">Demo</a>
+							</p>
+						</div>
+						-->
+					</div>
+					<div class="actions">
+						<!--<button class="btn prev">Back</button>-->
+						<button class="btn restart">Restart</button>
 					</div>
 				</section>
 			</div>
+			<p id="credits">Created by <a href="http://elvery.net/">Simon Elvery</a>. Most data from the <a href="https://docs.google.com/spreadsheet/ccc?key=0Al0lI17fOl9DdDgxTFVoRzFpV3VCdHk2NTBmdVI2OXc#gid=0">Responsive Images Chart</a> thanks to the excellent <a href="http://css-tricks.com/">CSS Tricks</a>.</p>
 		</div>
 		
 		<script src="lib/reveal/lib/js/head.min.js"></script>
@@ -317,7 +495,7 @@
 			Reveal.initialize({
 				width: 1024,
 				height: 768,
-				controls: false,
+				controls: true,
 				progress: true,
 				history: true,
 				center: false,
@@ -342,3 +520,4 @@
 
     </body>
 </html>
+
