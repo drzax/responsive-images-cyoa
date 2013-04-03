@@ -23,6 +23,8 @@ var Wizard = (function($, undefined){$(function(){
 			location += '/'+event.indexv;
 		}
 		
+		if (_gaq) _gaq.push(['_trackPageview', location.path]);
+		
 		log.push(location);
 		if (log.length > 2) log.shift();
 	});
