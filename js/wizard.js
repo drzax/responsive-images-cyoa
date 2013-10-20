@@ -26,7 +26,7 @@ var Wizard = (function($, undefined){$(function(){
 		var $current;
 
 		$current = $(Reveal.getCurrentSlide());
-		if ($current.hasClass('question') || $current.hasClass('answers')) {
+		if ($current.hasClass('question') || $current.is('#result')) {
 			$('#solutions-count').show();
 			$('button.restart').css('display', 'inline');
 			if (log.length) {
