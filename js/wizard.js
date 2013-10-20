@@ -14,18 +14,13 @@ var Wizard = (function($, undefined){$(function(){
 	$count.html($solutions.not('.excluded').length);
 	$solutions.find('a').attr('target', '_blank');
 
+	// Update slide nav at the start, in case anyone lands in the middle.
 	updateSlideNav()
 	
-	Reveal.addEventListener( 'slidechanged', function( event ) {
-		
-		// Track it in Google Analytics
-		if (_gaq) _gaq.push(['_trackPageview', getHashLink({h:event.indexh,v:event.indexv})]);
-
-		// Should the slide nav be displayed?
-		updateSlideNav()
-		
-	});
-
+	/**
+	 * Update the visibility of solutions count and reset/back buttons.
+	 * @return {null}
+	 */
 	function updateSlideNav() {
 
 		var $current;
@@ -33,16 +28,20 @@ var Wizard = (function($, undefined){$(function(){
 		$current = $(Reveal.getCurrentSlide());
 		if ($current.hasClass('question') || $current.hasClass('answers')) {
 			$('#solutions-count').show();
-			$questionsNav.find('button.restart').css('display', 'inline');
+			$('button.restart').css('display', 'inline');
 			if (log.length) {
-				$questionsNav.find('button.back').css('display', 'inline');
+				$('button.back').css('display', 'inline');
 			}
 		} else {
 			$('#solutions-count').hide();
-			$questionsNav.find('button').hide();
+			$('#question-nav button').hide();
 		}
 	}
 	
+	/**
+	 * Update the available solutions
+	 * @return {Number} The remaining available solutions
+	 */
 	function updateAvailableSolutions() {
 		var excluded;
 
@@ -97,7 +96,10 @@ var Wizard = (function($, undefined){$(function(){
 		return link;
 	}
 	
-	$(document).on('click', '.responses button:not(.more-toggle)', function(){
+	/*
+	 * Handle response button clicks
+	 */
+	$(document).on('click', 'button.answer', function(){
 		var $this;
 
 		$this = $(this);
@@ -117,18 +119,30 @@ var Wizard = (function($, undefined){$(function(){
 			$('#result').removeClass('count-1').removeClass('count-0').addClass('count-'+count);
 			window.location = '#/result';
 		}
+		return false;
 	});
 	
+	/*
+	 * Handle clicks on more info toggle buttons
+	 */
 	$(document).on('click', '.more-toggle', function() {
 		var $section = $(this).parents('section').first();
 		$section.toggleClass('show-more');
 		$(this).text(($section.hasClass('show-more')?'Less':'More'));
+		return false;
 	});
 	
+	/*
+	 * Start button click handler, just move to the next slide!
+	 */
 	$(document).on('click', 'button.start', function(){
 		Reveal.next();
+		return false;
 	});
 	
+	/*
+	 * Handle clicks on the back button
+	 */
 	$(document).on('click', 'button.back', function(){
 		var location = log.pop();
 
@@ -143,6 +157,9 @@ var Wizard = (function($, undefined){$(function(){
 		return false;
 	});
 	
+	/*
+	 * Handle clicks on the reset button
+	 */
 	$(document).on('click', 'button.restart', function(){
 		$('button').removeClass('selected');
 		updateAvailableSolutions();
@@ -150,5 +167,19 @@ var Wizard = (function($, undefined){$(function(){
 		window.location = '#/start';
 		return false;
 	});
+
+	/*
+	 * Handle slide change event to record analytics and update display.
+	 */
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+		
+		// Track it in Google Analytics
+		if (_gaq) _gaq.push(['_trackPageview', getHashLink({h:event.indexh,v:event.indexv})]);
+
+		// Should the slide nav be displayed?
+		updateSlideNav();
+		
+	});
+
 	
 });}(jQuery));
