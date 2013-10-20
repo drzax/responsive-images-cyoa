@@ -49,6 +49,8 @@ code {
 	text-transform: none !important;
 }
 
+.reveal a.btn:link,
+.reveal a.btn:visited,
 button {
 	background: none;
 	border: medium none;
@@ -68,10 +70,19 @@ button {
 	cursor: pointer;
 	line-height: 1em;
 	margin-bottom: .5em;
+	@include transition(color .15s ease);
+
+	&:hover {
+		color: lighten( $buttonColor, 20% );
+	}
 
 	&::before {
 		content: "›";
-		margin-right: .3em;
+		width: 1rem;
+		text-align: right;
+		@include inline-block;
+		margin-right: .4rem;
+		vertical-align: top;
 	}
 
 	&::-moz-focus-inner {
@@ -99,6 +110,10 @@ button {
 
 	&.selected {
 		border-bottom: 3px solid $buttonColor;
+	}
+
+	&.skip {
+		font-size: .8em;
 	}
 	
 }
