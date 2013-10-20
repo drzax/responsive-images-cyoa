@@ -1,0 +1,326 @@
+/*!
+ * Responsive images wizard theme for reveal.js
+ *
+ * Copyright (C) 2013 Simon Elvery, http://elvery.net
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+// Compass...can't live without it.
+@import 'compass';
+
+// Import the reveal helpers
+@import '../lib/reveal/css/theme/template/mixins';
+@import '../lib/reveal/css/theme/template/settings';
+
+// Fonts
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700,300italic,600italic,700italic);
+
+// Define the theme vars as we want them
+$mainFont: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$mainFontSize: 34px;
+$mainColor: #33363B;
+$headingFont: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headingFontWeight: 700;
+$headingAlternateFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headingColor: #33363B;
+$headingTextShadow: none;
+$heading1TextShadow: none;
+$headingTextTransform: uppercase;
+$backgroundColor: rgb(127,255,223);
+$linkColor: #176F8E;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99); 
+
+// Finaly import the reveal theme scss
+@import '../lib/reveal/css/theme/template/theme';
+
+/***************************************************************
+ * Here starts the actual theme styles
+ ***************************************************************/
+
+$buttonColor: #0077cc;
+
+.outro body,
+.prelude body {
+	background-color: rgb(154, 209, 255);
+}
+
+code {
+	text-transform: none !important;
+}
+
+button {
+	background: none;
+	border: medium none;
+	border-spacing: 0;
+	font-family: inherit;
+	font-weight: normal;
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	text-decoration: none;
+	text-indent: 0;
+	display: block;
+	font-size: 1.5em;
+	vertical-align: middle;
+	color: $buttonColor;
+	cursor: pointer;
+	line-height: 1em;
+	margin-bottom: .5em;
+
+	&::before {
+		content: "›";
+		margin-right: .3em;
+	}
+
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	&.start {
+		font-size: 2em;
+	}
+
+	&.back,
+	&.restart {
+		&::before {
+			content: "‹"
+		}
+	}
+
+	&.more-toggle {
+		font-size: 1em;
+		margin-top: 1em;
+		padding-top: 1em;
+		border-top: 1px solid #fff;
+	}
+
+	&.selected {
+		border-bottom: 3px solid $buttonColor;
+	}
+	
+}
+
+#question-nav {
+	position: fixed;
+	top: 1.7em;
+	right: .7em;
+	z-index: 30;
+	width: 7em;
+
+	button {
+		font-size: .4em;
+		display: inline-block;
+		margin-right: 1em;
+		display: none;
+	}
+}
+
+#solutions-count {
+	font-size: .6em;
+	font-family: $headingFont;
+	text-transform: uppercase;
+	position: fixed;
+	top: 1em;
+	right: 1em;
+	vertical-align: middle;
+	display: inline-block;
+	background-color: rgba(255,255,255,.4); 
+	padding: 0.15em 0 0 .5em;
+	@include border-radius(0 1em 1em 0);
+	
+	span {
+		display: inline-block;
+		height: 1em;
+		line-height: 1em;
+		width: 1em;
+		margin-left: 1em;
+		text-align: center;
+		vertical-align: middle;
+		padding: 0.5em;
+		background: #fff;
+		color: #000;
+		font-weight: bold;
+		@include border-radius(5000px);
+		position: relative;
+		top: -.1em;
+	}
+}
+
+#credits {
+	position: fixed;
+	font-family: $headingFont;
+	z-index: 30;
+	font-size: .4em;
+	bottom: 1em;
+	left: 1em;
+}
+
+.intro {
+	#solutions-count {
+		display: none;
+	}
+}
+
+.reveal .slides {
+	
+	text-align: left;
+	
+	h1, h2, h3, h4, h5, p {
+		margin: .5em 0;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	
+	h1 {
+		font-size: 2em;
+	}
+
+	h2 {
+		font-size: 1.5em;
+	}
+	
+	h3 {
+		font-size: 1.3em;
+	}
+	
+	h2, h3, h4 {
+		text-transform: none;
+	}
+	
+	// Remove unwanted padding from default slide styles.
+	>section,
+	>section>section {
+		height: 100%;
+		padding: 0;
+	}
+
+	// No background on images please.
+	img {
+		background: none;
+		border: none;
+		@include box-shadow(none);
+	}
+	
+	// Question slide styles
+	section.question {
+
+		
+
+		h1 {
+			margin-bottom: .1em;
+		}
+		
+		ul, ol {
+			font-size: .8em;
+		}
+		
+		// The main content container
+		// Contains .main and .more containers
+		.content {
+			position: relative;
+			float: left;
+			width: 65%;
+			height: 80%;
+			@include box-sizing(border-box);
+			@include perspective(5000);
+
+			.flip {
+				@include transition-duration(0.6s);
+				@include transform-style(preserve-3d);
+				height: 100%;
+				width: 100%;
+			}
+
+			.front,
+			.back {
+				overflow: auto;
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top:0;
+				left:0;
+				padding: 1em;
+				background: rgba(255,255,255,.2);
+				@include backface-visibility(hidden);
+				@include border-radius(1em);
+				@include box-sizing(border-box);
+			}
+
+			.front {
+				z-index: 2;
+			}
+
+			.back {
+				@include rotateY(180deg);
+				background: rgba(0,0,0,.2);
+			}
+		}
+
+		&.show-more {
+			.flip {
+				@include rotateY(180deg);
+			}
+		}
+
+		.responses {
+			float: right;
+			width: 35%;
+			padding-left: 1em;
+			@include box-sizing(border-box);
+		}
+			
+	}
+
+	// Specific styles for results slide layout
+	#result {
+
+		#solutions {
+			
+			max-height: 80%;
+			overflow: auto;
+			
+			.solution {
+				@include box-sizing(border-box);
+				display: inline-block;
+				width: 45%;
+				margin: 0 1.2em 0 0;
+				vertical-align: top;
+				border-top: 1px solid #fff;
+				padding: 1em 1em 1em 0 ;
+				
+				@include transition-property(opacity);
+				@include transition-duration(0.2s);
+				@include transition-timing-function(ease-in);
+				
+				// Hide excluded solutions and give some styles incase all have been eleminated (see below).
+				&.excluded {
+					opacity: .3;
+					display: none;
+				
+					&:hover {
+						opacity: .8;
+					}
+				}
+
+				p:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		
+		// Show all the solutions if they've all been eliminated.
+		&.count-0 {
+			#solutions {
+				.solution {
+					&.excluded {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+}
