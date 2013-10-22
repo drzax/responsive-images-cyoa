@@ -205,6 +205,15 @@ button {
 	h2, h3, h4 {
 		text-transform: none;
 	}
+
+	blockquote {
+		background: none;
+		border: none;
+		position: relative;
+		font-size: 1.2em;
+		line-height: 1.2em;
+		box-shadow: none;
+	}
 	
 	// Remove unwanted padding from default slide styles.
 	>section,
@@ -222,8 +231,6 @@ button {
 	
 	// Question slide styles
 	section.question {
-
-		
 
 		h1 {
 			margin-bottom: .1em;
@@ -287,7 +294,10 @@ button {
 			padding-left: 1em;
 			@include box-sizing(border-box);
 		}
-			
+	}
+
+	section.img-slide {
+		text-align: center;
 	}
 
 	// Specific styles for results slide layout

@@ -54,7 +54,7 @@
 										<li>What are the accessibility implications?</li>
 									</ul>
 								</div>
-								<aside class="back">
+                                                                <div class="back">
 									<p>Most techniques for implementing responsive images utilse some kind of specific markup
 									in or around each image tag. This can be anything from additional attributes on the <code>&lt;img></code>
 									tag itself to completely custom and non-standard markup which only uses an <code>&lt;img></code>
@@ -73,7 +73,7 @@
 									<h3>Future design</h3>
 									<p>If the site's design is updated in the future, will the additional markup for each image
 									be problematic?</p>
-								</aside>
+                                                                </div>
 							</div>
 						</div>
 						<div class="responses">
@@ -159,7 +159,7 @@
 							<div class="front">
 								<img src="images/art-direction.png" alt="Difference between an art directed image and a non-art directed image."/>
 							</div>
-							<aside class="back">
+                                                        <div class="back">
 								<p>Art direction can be very important on some images in some contexts. The two most common techniques 
 								used when resizing an image for display on smaller screens are to simply resize the image to fit,
 								or to crop/zoom the image using the centre as the focal point.</p>
@@ -171,7 +171,7 @@
 								a responsive images solution by itself, it may be worth investigating <a href="https://github.com/adamdbradley/focal-point">
 								focal point</a>, a pure html/css technique for implementing crop/zoom art direction on responsive
 								sites.</p>
-							</aside>
+                                                        </div>
 						</div>
 					</div>
 					<div class="responses">
@@ -212,12 +212,12 @@
 									as a dependency.</p>
 									<p>If the site doesn't already use jQuery other techniques may be a better option.</p>
 								</div>
-								<aside class="back">
+                                                                <div class="back">
 									<p>jQuery is a big dependency. Depending on the specifics of the implementation, it may or 
 									may not be better to avoid adding jQuery just for responsive images. The key factors will be
 									initial page weight added by jQuery and how much download is likely to be saved due to the
 									responsive image technique.</p>
-								</aside>
+                                                                </div>
 							</div>
 						</div>
 						<div class="responses">
@@ -229,7 +229,7 @@
 					</section>
 				</section>
 				<section data-state="technology" class="question">
-					<h1>Server side components  <span>i</span></h1>
+                                        <h1>Server side components</h1>
 					<div class="content">
 						<div class="flip">
 							<div class="front">
@@ -242,12 +242,12 @@
 									<li>Is it possible to implement custom functionality to the CMS?</li>
 								</ul>
 							</div>
-							<aside class="back">
+                                                        <div class="back">
 								<p>There are a wide variety of considerations here, and this tool doesn't break down the techniques
 								by server technology. Most of the techniques included are Apache / PHP based solutions.</p>
 								<p>It's almost certainly possible to port the server side portion of each techniques to another 
 								server technology.</p>
-							</aside>
+                                                        </div>
 						</div>
 					</div>
 					<div class="responses">
@@ -280,12 +280,12 @@
 								<p>Some of the techniques can result in double requests for images. </p>
 								<p>Double requests will increase page weight and load time (typically for users with higher resolution screens).</p> 
 							</div>
-							<aside class="back">
+                                                        <div class="back">
 								<p>These techniques typically work by starting with a default (low-resolution) image and using 
 								javascript to swap in a higher resolution where appropriate.</p>
 								<p>Some techniques use an 1px &times; 1px transparent GIF as the default image which minimises
 								additional requests and page weight. If semantics are important, this method may be problematic.</p>
-							</aside>
+                                                        </div>
 						</div>
 					</div>
 					<div class="responses">
@@ -309,7 +309,7 @@
 									<li>Accuracy may be low.</li>
 								</ul>
 							</div>
-							<aside class="back">
+                                                        <div class="back">
 								<h2>Half the battle <span>i</span></h2>
 								<p>Being responsive isn't just about screen resolutions. Network conditions are also an important
 								factor and especially so when dealing with weighty assets like images.</p>
@@ -323,7 +323,7 @@
 								<p>There is an important trade off here between the size of the test asset and the accuracy of the
 								result. The larger the test asset the less useful bandwidth testing becomes overall, but make it 
 								too small and the result becomes much less accurate.</p>
-							</aside>
+                                                        </div>
 						</div>
 					</div>
 					<div class="responses">
@@ -340,9 +340,9 @@
 					<div class="main">
 						<p>Description</p>
 					</div>
-					<aside class="help">
+                                        <div class="help">
 						<p>Some extra help.</p>
-					</aside>
+                                        </div>
 					<div class="responses">
 						<p>Question</p>
 						<button class="answer">Yes</button>
