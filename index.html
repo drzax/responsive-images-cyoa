@@ -12,300 +12,341 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<link rel="stylesheet" href="lib/reveal/css/reveal.min.css">
-		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/wdyk2013.css">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/reveal/lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/wds2013.css">
 		
 		<!--[if lt IE 9]>
 		<script src="lib/reveal/lib/js/html5shiv.js"></script>
 		<![endif]-->
 		
+		<!-- All the analytics are belong to me -->
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-55411-1']);
 			_gaq.push(['_trackPageview']);
 		</script>
-	</head>
+
+	</head>	
     <body>
 		<div class ="reveal">
-			<div id="solutions-count">Potential solutions: <span></span></div>
+			<div id="solutions-count">Remaining solutions: <span></span></div>
+			<div id="question-nav"><button class="restart">Reset</button> <button class="back">Previous question</button></div>
 			<div class="slides">
-				<section data-state="intro">
+				<section data-state="intro" id="start">
 					<h1>Responding to the unknown</h1>
 					<p>The <em>Choose Your Own Adventure</em> approach to selecting a responsive images technique.</p>
-					<button class="btn btn-large btn-primary start">Get started</button>
+					<button class="btn btn-large btn-primary start">Take the adventure</button>
+					<a class="btn skip" href="#/results">Skip to the solutions</a>
 					<p><small>Created or know of a solution worthy of inclusion? Please <a href="mailto:simon@elvery.net">get in touch</a> or <a href="https://github.com/drzax/responsive-images-cyoa">contribute on GitHub</a>.</small></p>
 				</section>
 				<section>
-					<section data-state="content">
+					<section data-state="content" class="question">
 						<h1>Extra markup</h1>
-						<div class="main">
-							<p>This issue is really one of practicality and can be especially important if 
-							there is significant archive content or unskilled users will be managing the site.</p>
-							<h2>Key considerations</h2>
-							<ul>
-								<li>Would it be impractical to update existing <code>&lt;img></code> tags?</li>
-								<li>Do the content producers have the technical ability to implement and maintain specific markup?</li>
-								<li>Is extra markup okay if the technique or site design is changed in the future?</li>
-								<li>What are the accessibility implications?</li>
-							</ul>
+						<div class="content">
+							<div class="flip">
+								<div class="front">
+									<p>This issue is really one of practicality and can be especially important if 
+									there is significant archive content or unskilled users will be managing the site.</p>
+									<h2>Key considerations</h2>
+									<ul>
+										<li>Would it be impractical to update existing <code>&lt;img></code> tags?</li>
+										<li>Do the content producers have the technical ability to implement and maintain specific markup?</li>
+										<li>Is extra markup okay if the technique or site design is changed in the future?</li>
+										<li>What are the accessibility implications?</li>
+									</ul>
+								</div>
+                                                                <div class="back">
+									<p>Most techniques for implementing responsive images utilse some kind of specific markup
+									in or around each image tag. This can be anything from additional attributes on the <code>&lt;img></code>
+									tag itself to completely custom and non-standard markup which only uses an <code>&lt;img></code>
+									tag as a fallback.</p>
+									<p>Relying on specific markup can be problematic for a variety of reasons.</p>
+									<h3>Legacy content</h3>
+									<p>If there is a large amount of legacy content, going back and implementing the new responsive
+									technique around all images may be a non-trivial exercise. Even if there is a large amount of 
+									legacy content, it may not be important that it gets updated. Maybe the majority of visitors
+									to the site only see content and ignoring archived content is a compromise worth making.</p>
+									<h3>Future content</h3>
+									<p>Another important consideration is future content. Many sites are managed by non-technical 
+									users and ensuring that each image tag has the required specific markup might not be possible.
+									Maybe the site's CMS has a WYSIWYG editor which authors use to insert images; can it be adapted
+									to ensure that every image is inserted with the required markup?</p>
+									<h3>Future design</h3>
+									<p>If the site's design is updated in the future, will the additional markup for each image
+									be problematic?</p>
+                                                                </div>
+							</div>
 						</div>
-						
 						<div class="responses">
 							<p>Is it okay to have <em>extra</em>, <em>specific</em> markup to make an image responsive?</p>
-							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
-							<button class="btn btn-block btn-large" data-next="down">Maybe</button>
-							<span>i</span>
+							<button class="answer">Yes</button>
+							<button class="answer" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
+							<button class="answer" data-next="down">Maybe</button>
+							<button class="more-toggle">More</button>
 						</div>
-						<aside class="help">
-							<p>Most techniques for implementing responsive images utilse some kind of specific markup
-							in or around each image tag. This can be anything from additional attributes on the <code>&lt;img></code>
-							tag itself to completely custom and non-standard markup which only uses an <code>&lt;img></code>
-							tag as a fallback.</p>
-							<p>Relying on specific markup can be problematic for a variety of reasons.</p>
-							<h3>Legacy content</h3>
-							<p>If there is a large amount of legacy content, going back and implementing the new responsive
-							technique around all images may be a non-trivial exercise. Even if there is a large amount of 
-							legacy content, it may not be important that it gets updated. Maybe the majority of visitors
-							to the site only see content and ignoring archived content is a compromise worth making.</p>
-							<h3>Future content</h3>
-							<p>Another important consideration is future content. Many sites are managed by non-technical 
-							users and ensuring that each image tag has the required specific markup might not be possible.
-							Maybe the site's CMS has a WYSIWYG editor which authors use to insert images; can it be adapted
-							to ensure that every image is inserted with the required markup?</p>
-							<h3>Future design</h3>
-							<p>If the site's design is updated in the future, will the additional markup for each image
-							be problematic?</p>
-						</aside>
 					</section>
-					<section data-state="content">
-						<h1>Extra attributes</h1>
-						<div class="main">
-							<p>Some techniques use extra attributes on the image tag. These are usually 
-							<code>data-xx=""</code> attributes or something designed to mimic future standards 
-							proposals like <a href="http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/" target="_blank">
-							<code>srcset</code></a>.</p>
-							<p>The techniques that work this way usually also require javascript.</p>
+					<section data-state="content" class="question">
+						<h1>Extra markup</h1>
+						<div class="content">
+							<div class="front">
+								<h2>Attributes</h2>
+								<p>Some techniques use extra attributes on the image tag. These are usually 
+								<code>data-xx=""</code> attributes or something designed to mimic future standards 
+								proposals like <a href="http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/" target="_blank">
+								<code>srcset</code></a>.</p>
+								<p>The techniques that work this way usually also require javascript.</p>
+							</div>
 						</div>
 						<div class="responses">
 							<p>Are extra attributes on the <code>&lt;img&gt;</code> tag okay?</p>
-							<button class="btn btn-block btn-large" data-next="down">Yes</button>
-							<button class="btn btn-block btn-large" data-next="down" data-exclude="hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,ri-php,tri,noscript,rirn">No</button>
+							<button class="answer" data-next="down">Yes</button>
+							<button class="answer" data-next="down" data-exclude="hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,ri-php,tri,noscript,rirn">No</button>
 						</div>
 					</section>
-					<section data-state="content">
-						<h1><code>&lt;noscript></code></h1>
-						<div class="main">
-							<p>Many of the javascript based techniques utilise the <code>&lt;noscript></code> tag to 
-							implement a fallback for when javascript isn't available.</p>
-							<p>Some techniques use <code>&lt;noscript></code> to avoid unwanted image requests.</p>
+					<section data-state="content" class="question">
+						<h1>Extra markup</h1>
+						<div class="content">
+							<div class="front">
+								<h2><code>&lt;noscript></code></h2>
+								<p>Many of the javascript based techniques utilise the <code>&lt;noscript></code> tag to 
+								implement a fallback for when javascript isn't available.</p>
+								<p>Some techniques use <code>&lt;noscript></code> to avoid unwanted image requests.</p>
+							</div>
 						</div>
 						<div class="responses">
 							<p>Is it okay to rely on a <code>&lt;noscript></code> tag for fallback content?</p>
-							<button class="btn btn-block btn-large" data-next="down">Yes</button>
-							<button class="btn btn-block btn-large" data-next="down" data-exclude="picturefill,foresight,ri-php,tri,noscript">No</button>
+							<button class="answer" data-next="down">Yes</button>
+							<button class="answer" data-next="down" data-exclude="picturefill,foresight,ri-php,tri,noscript">No</button>
 						</div>
 					</section>
-					<section data-state="content">
-						<h1>Special markup</h1>
-						<div class="main">
-							<p>Some techniques require specific markup around images. This can be anything from a
-							set of nested <code>&lt;div></code> elements with specific <code>data</code> attributes to 
-							the use of completely non-standard markup such as <a href="http://picture.responsiveimages.org/" target="_blank">the proposed 
-							<code>picture</code> element</a>.</p>
+					<section data-state="content" class="question">
+						<h1>Extra markup</h1>
+						<div class="content">
+							<div class="front">
+								<h2>Specific markup</h2>
+								<p>Some techniques require specific markup around images. This can be anything from a
+								set of nested <code>&lt;div></code> elements with specific <code>data</code> attributes to 
+								the use of completely non-standard markup such as <a href="http://picture.responsiveimages.org/" target="_blank">the proposed 
+								<code>picture</code> element</a>.</p>
+							</div>
 						</div>
 						<div class="responses">
 							<p>Is completely custom markup okay?</p>
-							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
+							<button class="answer">Yes</button>
+							<button class="answer" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
 						</div>
 					</section>
-					<section data-state="content">
-						<h1>Markup validity</h1>
-						<div class="main">
-							<p>Some techniques rely on markup that won't validate using the <a href="http://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>.</p>
-							<p>Validation can be a useful tool, but remember that it's just a tool. Don't let it get in the
-							way of a better user experience.</p>
+					<section data-state="content" class="question">
+						<h1>Extra markup</h1>
+						<div class="content">
+							<div class="main">
+								<h2>Non-standard</h2>
+								<p>Some techniques rely on markup that won't validate using the <a href="http://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>.</p>
+								<p>Validation can be a useful tool, but remember that it's just a tool. Don't let it get in the
+								way of a better user experience.</p>
+							</div>
 						</div>
 						<div class="responses">
 							<p>Is it okay if the markup doesn't validate?</p>
-							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,riloadr,ri-php">No</button>
+							<button class="answer">Yes</button>
+							<button class="answer" data-exclude="picturefill,riloadr,ri-php">No</button>
 						</div>
 					</section>
 				</section>
-				<section data-state="content">
+				<section data-state="content" class="question">
 					<h1>Art direction</h1>
-					<div class="main">
-						<img src="images/art-direction.png" alt="Difference between an art directed image and a non-art directed image."/>
+					<div class="content">
+						<div class="flip">
+							<div class="front">
+								<img src="images/art-direction.png" alt="Difference between an art directed image and a non-art directed image."/>
+							</div>
+                                                        <div class="back">
+								<p>Art direction can be very important on some images in some contexts. The two most common techniques 
+								used when resizing an image for display on smaller screens are to simply resize the image to fit,
+								or to crop/zoom the image using the centre as the focal point.</p>
+								<p>The meaning of an image can easily be lost with these simple techniques. By simply resizing 
+								an image to fit a small screen important details may become impossible to discern. Similarly by 
+								assuming the centre of the image should be the focal point when automatically cropping and 
+								zooming an image, the real focal point may be completely lost.</p>
+								<p>Very few of the responsive image techniques allow for crop/zoom art direction. While it's not 
+								a responsive images solution by itself, it may be worth investigating <a href="https://github.com/adamdbradley/focal-point">
+								focal point</a>, a pure html/css technique for implementing crop/zoom art direction on responsive
+								sites.</p>
+                                                        </div>
+						</div>
 					</div>
-					<aside class="help">
-						<p>Art direction can be very important on some images in some contexts. The two most common techniques 
-						used when resizing an image for display on smaller screens are to simply resize the image to fit,
-						or to crop/zoom the image using the centre as the focal point.</p>
-						<p>The meaning of an image can easily be lost with these simple techniques. By simply resizing 
-						an image to fit a small screen important details may become impossible to discern. Similarly by 
-						assuming the centre of the image should be the focal point when automatically cropping and 
-						zooming an image, the real focal point may be completely lost.</p>
-						<p>Very few of the responsive image techniques allow for crop/zoom art direction. While it's not 
-						a responsive images solution by itself, it may be worth investigating <a href="https://github.com/adamdbradley/focal-point">
-						focal point</a>, a pure html/css technique for implementing crop/zoom art direction on responsive
-						sites.</p>
-					</aside>
 					<div class="responses">
 						<p>Is the ability to art direct responsive images important?</p>
-						<button class="btn btn-block btn-large" data-exclude="adaptive-images,foresight,src-sencha-io,riloadr,doubletake,wurfl">Yes</button>
-						<button class="btn btn-block btn-large">No</button>
-						<span>i</span>
+						<button class="answer" data-exclude="adaptive-images,foresight,src-sencha-io,riloadr,doubletake,wurfl">Yes</button>
+						<button class="answer">No</button>
+						<button class="more-toggle">More</button>
 					</div>
 				</section>
 				<section>
-					<section data-state="technology">
+					<section data-state="technology" class="question">
 						<h1>Javascript</h1>
-						<div class="main">
-							<p>Most of the techniques require at least some javascript and most also provide a reasonable
-							fallback for users without javascript.</p>
-							<h2>Key considerations</h2>
-							<ul>
-								<li>We're close to the point where users without javascript should be considered an edge
-								case.</li>
-								<li>There may be accessibility implications.</li>
-							</ul>
+						<div class="content">
+							<div class="front">
+								<p>Most of the techniques require at least some javascript and most also provide a reasonable
+								fallback for users without javascript.</p>
+								<h2>Key considerations</h2>
+								<ul>
+									<li>We're close to the point where users without javascript should be considered an edge
+									case.</li>
+									<li>There may be accessibility implications.</li>
+								</ul>
+							</div>
 						</div>
 						<div class="responses">
 							<p>Is it okay to use javascript?</p>
-							<button class="btn btn-block btn-large" data-next="down">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript">No</button>
+							<button class="answer" data-next="down">Yes</button>
+							<button class="answer" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript">No</button>
+
 						</div>
 					</section>
-					<section data-state="technology">
+					<section data-state="technology" class="question">
 						<h1>Library dependency</h1>
-						<div class="main">
-							<p>A couple of the techniques have the <a href="http://jquery.com" target="_blank">jQuery library</a>
-							as a dependency.</p>
-							<p>If the site doesn't already use jQuery other techniques may be a better option.</p>
+						<div class="content">
+							<div class="flip">
+								<div class="front">
+									<p>A couple of the techniques have the <a href="http://jquery.com" target="_blank">jQuery library</a>
+									as a dependency.</p>
+									<p>If the site doesn't already use jQuery other techniques may be a better option.</p>
+								</div>
+                                                                <div class="back">
+									<p>jQuery is a big dependency. Depending on the specifics of the implementation, it may or 
+									may not be better to avoid adding jQuery just for responsive images. The key factors will be
+									initial page weight added by jQuery and how much download is likely to be saved due to the
+									responsive image technique.</p>
+                                                                </div>
+							</div>
 						</div>
-						<aside class="help">
-							<p>jQuery is a big dependency. Depending on the specifics of the implementation, it may or 
-							may not be better to avoid adding jQuery just for responsive images. The key factors will be
-							initial page weight added by jQuery and how much download is likely to be saved due to the
-							responsive image technique.</p>
-						</aside>
 						<div class="responses">
 							<p>Is it okay to have jQuery as a dependency?</p>
-							<button class="btn btn-block btn-large">Yes</button>
-							<button class="btn btn-block btn-large" data-exclude="hisrc,rwd-images,doubletake,ri-php,tri">No</button>
+							<button class="answer">Yes</button>
+							<button class="answer" data-exclude="hisrc,rwd-images,doubletake,ri-php,tri">No</button>
+							<button class="more-toggle">More</button>
 						</div>
 					</section>
 				</section>
-				<section data-state="technology">
-					<h1>Server side components</h1>
-					<div class="main">
-						<p>Some of the techniques are implemented or partially implemented using server side technologies
-						like <code>.htaccess</code> files or PHP.</p>
-						<h2>Key considerations</h2>
-						<ul>
-							<li>Is it possible to change the server side technology?</li>
-							<li>Is there time to port the server side component to the technology used by the site?</li>
-							<li>Is it possible to implement custom functionality to the CMS?</li>
-						</ul>
+				<section data-state="technology" class="question">
+                                        <h1>Server side components</h1>
+					<div class="content">
+						<div class="flip">
+							<div class="front">
+								<p>Some of the techniques are implemented or partially implemented using server side technologies
+								like <code>.htaccess</code> files or PHP.</p>
+								<h2>Key considerations</h2>
+								<ul>
+									<li>Is it possible to change the server side technology?</li>
+									<li>Is there time to port the server side component to the technology used by the site?</li>
+									<li>Is it possible to implement custom functionality to the CMS?</li>
+								</ul>
+							</div>
+                                                        <div class="back">
+								<p>There are a wide variety of considerations here, and this tool doesn't break down the techniques
+								by server technology. Most of the techniques included are Apache / PHP based solutions.</p>
+								<p>It's almost certainly possible to port the server side portion of each techniques to another 
+								server technology.</p>
+                                                        </div>
+						</div>
 					</div>
-					<aside class="help">
-						<p>There are a wide variety of considerations here, and this tool doesn't break down the techniques
-						by server technology. Most of the techniques included are Apache / PHP based solutions.</p>
-						<p>It's almost certainly possible to port the server side portion of each techniques to another 
-						server technology.</p>
-					</aside>
 					<div class="responses">
 						<p>Is the use of server side technologies okay?</p>
-						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="adaptive-images,responsive-images-1,responsive-images-2,car,doubletake,ri-php,ri-cookie,wurfl">No</button>
-						<span>i</span>
+						<button class="answer">Yes</button>
+						<button class="answer" data-exclude="adaptive-images,responsive-images-1,responsive-images-2,car,doubletake,ri-php,ri-cookie,wurfl">No</button>
+						<button class="more-toggle">More</button>
 					</div>
 				</section>
-				<section data-state="technology">
+				<section data-state="technology" class="question">
 					<h1>Third-party service</h1>
-					<div class="main">
-						<p>Relying on a third-party service means having a little less control over uptime. </p>
-						<p>It may be difficult or impossible to implement a reliable fallback for <em>when</em> the 
-						service goes down. And it <em>will</em> go down.</p>
+					<div class="content">
+						<div class="front">
+							<p>Relying on a third-party service means having a little less control over uptime. </p>
+							<p>It may be difficult or impossible to implement a reliable fallback for <em>when</em> the 
+							service goes down. And it <em>will</em> go down.</p>
+						</div>
 					</div>
 					<div class="responses">
 						<p>Is it okay to rely on a third-party service?</p>
-						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="src-sencha-io">No</button>
+						<button class="answer">Yes</button>
+						<button class="answer" data-exclude="src-sencha-io">No</button>
 					</div>
 				</section>
-				<section data-state="user">
+				<section data-state="user" class="question">
 					<h1>Loading additional images</h1>
-					<div class="main">
-						<p>Some of the techniques can result in double requests for images. </p>
-						<p>Double requests will increase page weight and load time (typically for users with higher resolution screens).</p> 
+					<div class="content">
+						<div class="flip">
+							<div class="front">
+								<p>Some of the techniques can result in double requests for images. </p>
+								<p>Double requests will increase page weight and load time (typically for users with higher resolution screens).</p> 
+							</div>
+                                                        <div class="back">
+								<p>These techniques typically work by starting with a default (low-resolution) image and using 
+								javascript to swap in a higher resolution where appropriate.</p>
+								<p>Some techniques use an 1px &times; 1px transparent GIF as the default image which minimises
+								additional requests and page weight. If semantics are important, this method may be problematic.</p>
+                                                        </div>
+						</div>
 					</div>
-					<aside class="help">
-						<p>These techniques typically work by starting with a default (low-resolution) image and using 
-						javascript to swap in a higher resolution where appropriate.</p>
-						<p>Some techniques use an 1px &times; 1px transparent GIF as the default image which minimises
-						additional requests and page weight. If semantics are important, this method may be problematic.</p>
-					</aside>
 					<div class="responses">
 						<p>Is it okay if double requests are made?</p>
-						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="hisrc,responsive-images-1,responsive-images-2,responsive-enhance,retinajs,doubletake,rirn">No</button>
-						<span>i</span>
+						<button class="answer">Yes</button>
+						<button class="answer" data-exclude="hisrc,responsive-images-1,responsive-images-2,responsive-enhance,retinajs,doubletake,rirn">No</button>
+						<button class="more-toggle">More</button>
 					</div>
 				</section>
-				<section>
+				<section class="question">
 					<h1>Bandwidth testing</h1>
-					<div class="main">
-						<p>Some of the techniques offer the ability to test the available bandwidth so even
-						if the viewer has a slow connection smaller images will be used even if 
-						their device has a high resolution display.</p>
-						<h2>Key considerations</h2>
-						<ul>
-							<li>There may be little advantage to this for sites with relatively few images per page.</li>
-							<li>Accuracy may be low.</li>
-						</ul>
+					<div class="content">
+						<div class="flip">
+							<div class="front">
+								<p>Some of the techniques offer the ability to test the available bandwidth so even
+								if the viewer has a slow connection smaller images will be used even if 
+								their device has a high resolution display.</p>
+								<h2>Key considerations</h2>
+								<ul>
+									<li>There may be little advantage to this for sites with relatively few images per page.</li>
+									<li>Accuracy may be low.</li>
+								</ul>
+							</div>
+                                                        <div class="back">
+								<h2>Half the battle <span>i</span></h2>
+								<p>Being responsive isn't just about screen resolutions. Network conditions are also an important
+								factor and especially so when dealing with weighty assets like images.</p>
+								<p>There are no native tools available for testing network conditions. Javascript is 
+								<a href="http://lists.whatwg.org/htdig.cgi/whatwg-whatwg.org/2012-May/036108.html" target="_blank">apparently</a>
+								getting a network API, but for now the only solution is to roll your own, which is what some of 
+								the responsive images techniques do.</p>
+								<h2>How it's done</h2>
+								<p>Typically they work by downloading an asset of a known size and measuring the time taken to infer 
+								the available download speed.</p>
+								<p>There is an important trade off here between the size of the test asset and the accuracy of the
+								result. The larger the test asset the less useful bandwidth testing becomes overall, but make it 
+								too small and the result becomes much less accurate.</p>
+                                                        </div>
+						</div>
 					</div>
-					<aside class="help">
-						<h2>Half the battle</h2>
-						<p>Being responsive isn't just about screen resolutions. Network conditions are also an important
-						factor and especially so when dealing with weighty assets like images.</p>
-						<p>There are no native tools available for testing network conditions. Javascript is 
-						<a href="http://lists.whatwg.org/htdig.cgi/whatwg-whatwg.org/2012-May/036108.html" target="_blank">apparently</a>
-						getting a network API, but for now the only solution is to roll your own, which is what some of 
-						the responsive images techniques do.</p>
-						<h2>How it's done</h2>
-						<p>Typically they work by downloading an asset of a known size and measuring the time taken to infer 
-						the available download speed.</p>
-						<p>There is an important trade off here between the size of the test asset and the accuracy of the
-						result. The larger the test asset the less useful bandwidth testing becomes overall, but make it 
-						too small and the result becomes much less accurate.</p>
-					</aside>
 					<div class="responses">
 						<p>Is bandwidth testing required?</p>
-						<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript,rirn,wurfl">Yes</button>
-						<button class="btn btn-block btn-large">No</button>
-						<span>i</span>
+						<button class="answer" data-exclude="picturefill,adaptive-images,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript,rirn,wurfl">Yes</button>
+						<button class="answer">No</button>
+						<button class="more-toggle">More</button>
 					</div>
 				</section>
 				
-				<!--
-				<section>
+				<!-- Question slide format.
+				<section class="question">
 					<h1>Issue</h1>
 					<div class="main">
 						<p>Description</p>
 					</div>
-					<aside class="help">
+                                        <div class="help">
 						<p>Some extra help.</p>
-					</aside>
+                                        </div>
 					<div class="responses">
 						<p>Question</p>
-						<button class="btn btn-block btn-large">Yes</button>
-						<button class="btn btn-block btn-large" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
+						<button class="answer">Yes</button>
+						<button class="answer" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr">No</button>
 						<span>i</span>
 					</div>
 				</section>
@@ -435,14 +476,6 @@
 								<a href="http://blog.keithclark.co.uk/responsive-images-using-cookies/">Project Home</a>
 							</p>
 						</div>
-						<div class="solution" id="tri">
-							<h2>Testing Responsive Images</h2>
-							<p>Utilises the <code>&lt;noscript></code> tag and javascript to insert images into the DOM
-							after page load.</p>
-							<p>
-								<a href="http://www.monoliitti.com/images/">Project Home &amp; Demo</a>
-							</p>
-						</div>
 						<div class="solution" id="noscript">
 							<h2>Responsive Image Tag</h2>
 							<p>Utilises the <code>&lt;noscript></code> tag and javascript to insert images into the DOM
@@ -477,13 +510,9 @@
 						</div>
 						-->
 					</div>
-					<div class="actions">
-						<!--<button class="btn prev">Back</button>-->
-						<button class="btn btn-large restart">Restart</button>
-					</div>
 				</section>
 			</div>
-			<p id="credits">Created by <a href="http://elvery.net/">Simon Elvery</a>. Most data from the <a href="https://docs.google.com/spreadsheet/ccc?key=0Al0lI17fOl9DdDgxTFVoRzFpV3VCdHk2NTBmdVI2OXc#gid=0">Responsive Images Chart</a> thanks to the excellent <a href="http://css-tricks.com/">CSS Tricks</a>.</p>
+			<p id="credits">Created by <a href="http://elvery.net/">Simon Elvery</a>. Most data from the <a href="https://docs.google.com/spreadsheet/ccc?key=0Al0lI17fOl9DdDgxTFVoRzFpV3VCdHk2NTBmdVI2OXc#gid=0">Responsive Images Chart</a> thanks to <a href="http://css-tricks.com/">CSS Tricks</a>. Contribute on <a href="https://github.com/drzax/responsive-images-cyoa">GitHub</a>.</p>
 		</div>
 		
 		<script src="lib/reveal/lib/js/head.min.js"></script>
@@ -494,17 +523,15 @@
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				width: 1024,
-				height: 768,
+				width: 1280, height: 800, // WDS 2013 projector resolution
 				controls: true,
-				progress: true,
+				progress: false,
 				history: true,
 				center: false,
-				overview: false,
-				margin: 0.2,
+				overview: true,			
+				margin: 0.2,			// Nicely fits the by-line and remaining solutions
 				rollingLinks: false,
 
-				theme: 'default', // available themes are in /css/theme
 				transition: 'linear', // default/cube/page/concave/zoom/linear/none
 
 				// Optional libraries used to extend on reveal.js
