@@ -43,6 +43,12 @@ $buttonColor: #0077cc;
 .outro body,
 .prelude body {
 	background-color: rgb(154, 209, 255);
+
+	#solutions-count,
+	#questions-nav,
+	#credits {
+		display: none;
+	}
 }
 
 code {
@@ -182,7 +188,7 @@ button {
 .reveal .slides {
 	
 	text-align: left;
-	
+
 	h1, h2, h3, h4, h5, p {
 		margin: .5em 0;
 		&:first-child {
@@ -227,6 +233,33 @@ button {
 		background: none;
 		border: none;
 		@include box-shadow(none);
+		&.overflow {
+			max-width: none;
+			max-height: none;
+			margin-left: -50%;
+			margin-right: -50%;
+		}
+	}
+
+	.title {
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		margin: 2em 0;
+		padding: 2em 3em;
+		font-size: 1.3em;
+
+		h1 {
+			text-transform: none;
+			margin-bottom: 1em;
+			font-size: 1.4em;
+			line-height: 1.15em;
+		}
+
+		h2 {
+			font-size: 1.6em;
+			line-height: 1.15em;
+			margin-bottom: 0;
+		}
 	}
 	
 	// Question slide styles
