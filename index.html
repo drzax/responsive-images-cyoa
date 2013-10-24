@@ -79,7 +79,7 @@
 						<div class="responses">
 							<p>Is it okay to have <em>extra</em>, <em>specific</em> markup to make an image responsive?</p>
 							<button class="answer">Yes</button>
-							<button class="answer" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
+							<button class="answer" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl,padding-bottom,redux">No</button>
 							<button class="answer" data-next="down">Maybe</button>
 							<button class="more-toggle">More</button>
 						</div>
@@ -99,7 +99,7 @@
 						<div class="responses">
 							<p>Are extra attributes on the <code>&lt;img&gt;</code> tag okay?</p>
 							<button class="answer" data-next="down">Yes</button>
-							<button class="answer" data-next="down" data-exclude="hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,ri-php,tri,noscript,rirn">No</button>
+							<button class="answer" data-next="down" data-exclude="hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,ri-php,tri,noscript,rirn,padding-bottom">No</button>
 						</div>
 					</section>
 					<section data-state="content" class="question">
@@ -115,7 +115,7 @@
 						<div class="responses">
 							<p>Is it okay to rely on a <code>&lt;noscript></code> tag for fallback content?</p>
 							<button class="answer" data-next="down">Yes</button>
-							<button class="answer" data-next="down" data-exclude="picturefill,foresight,ri-php,tri,noscript">No</button>
+							<button class="answer" data-next="down" data-exclude="picturefill,foresight,ri-php,tri,noscript,padding-bottom">No</button>
 						</div>
 					</section>
 					<section data-state="content" class="question">
@@ -132,7 +132,7 @@
 						<div class="responses">
 							<p>Is completely custom markup okay?</p>
 							<button class="answer">Yes</button>
-							<button class="answer" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl">No</button>
+							<button class="answer" data-exclude="picturefill,hisrc,responsive-images-1,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,ri-php,ri-cookie,tri,noscript,rirn,wurfl,padding-bottom">No</button>
 						</div>
 					</section>
 					<section data-state="content" class="question">
@@ -199,7 +199,7 @@
 						<div class="responses">
 							<p>Is it okay to use javascript?</p>
 							<button class="answer" data-next="down">Yes</button>
-							<button class="answer" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript">No</button>
+							<button class="answer" data-exclude="picturefill,adaptive-images,hisrc,responsive-images-1,responsive-images-2,foresight,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript,padding-bottom">No</button>
 
 						</div>
 					</section>
@@ -325,10 +325,10 @@
 								too small and the result becomes much less accurate.</p>
                                                         </div>
 						</div>
-					</div>
+					</div>	
 					<div class="responses">
 						<p>Is bandwidth testing required?</p>
-						<button class="answer" data-exclude="picturefill,adaptive-images,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript,rirn,wurfl">Yes</button>
+						<button class="answer" data-exclude="picturefill,adaptive-images,responsive-images-2,foresight,src-sencha-io,riloadr,responsive-enhance,rwd-images,retinajs,car,doubletake,ri-php,ri-cookie,tri,noscript,rirn,wurfl,padding-bottom,redux">Yes</button>
 						<button class="answer">No</button>
 						<button class="more-toggle">More</button>
 					</div>
@@ -377,6 +377,14 @@
 							conditions and screen resolution.</p>
 							<p>
 								<a href="https://github.com/teleject/hisrc">Project Home</a>
+							</p>
+						</div>
+						<div class="solution" id="padding-bottom">
+							<h2>padding-bottom</h2>
+							<p>This is a technique invented for <a href="http://www.aftonbladet.se/">Aftonbladet</a>, a major Swedish website. It combines a number of other known techniques to match a particular usecase. and suits high volume websites well.</p>
+							<p>
+								<a href="http://mobile.smashingmagazine.com/2013/09/16/responsive-images-performance-problem-case-study/">Project Home</a> | 
+								<a href="http://aftonbladet.github.io/demos/responsive-images/index.html">Demo</a>
 							</p>
 						</div>
 						<div class="solution" id="responsive-images-1">
@@ -457,6 +465,14 @@
 							<p>A proof of concept jQuery plugin which rewrites image source attributes based on regular expressions.</p>
 							<p>
 								<a href="http://www.grahambird.co.uk/lab/doubletake/">Project Home &amp; Demo</a>
+							</p>
+						</div>
+						<div class="solution" id="redux">
+							<h2>Responsive Images Redux</h2>
+							<p>A 'CSS only' solution which uses dummy images in the markup and CSS background images with media queries to serve the right image for the context.</p>
+							<p>
+								<a href="http://mattstow.com/responsive-and-retina-content-images-redux.html">Project Home</a> | 
+								<a href="http://mattstow.com/experiment/responsive-images-redux/responsive-images-redux.html">Demo</a>
 							</p>
 						</div>
 						<div class="solution" id="ri-php">
